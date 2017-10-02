@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.get('/', (req, res) => {
   db.getAlbums((error, albums) => {
     if (error) {
-      res.status(500).render('error', {error})
+      res.status(500).render('common/error', {error})
     } else {
       res.render('index', {albums})
     }
@@ -29,7 +29,7 @@ app.get('/albums/:albumID', (req, res) => {
 
   db.getAlbumsByID(albumID, (error, albums) => {
     if (error) {
-      res.status(500).render('error', {error})
+      res.status(500).render('common/error', {error})
     } else {
       const album = albums[0]
       res.render('album', {album})
@@ -38,7 +38,7 @@ app.get('/albums/:albumID', (req, res) => {
 })
 
 app.use((req, res) => {
-  res.status(404).render('not_found')
+  res.status(404).render('common/not_found')
 })
 
 app.listen(port, () => {
