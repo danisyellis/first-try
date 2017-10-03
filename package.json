@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
+    "db:session:setup": "psql vinyl < node_modules/connect-pg-simple/table.sql",
     "db:create": "createdb vinyl",
     "db:drop": "dropdb vinyl",
     "db:schema": "psql -d vinyl < src/db/schema.sql",
@@ -16,9 +17,14 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
+    "connect-pg-simple": "^4.2.1",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
     "pg": "^6.2.4"
   },
   "devDependencies": {
