@@ -47,3 +47,9 @@ const findById = (id) => {
       throw error;
     });
   };
+
+module.exports = {
+  create,
+  findByEmail,
+  findById
+};

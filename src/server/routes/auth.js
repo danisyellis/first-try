@@ -36,7 +36,8 @@ router.get('/login', (request, response) => {
     const id = request.session.user.id;
     response.redirect(`/users/${id}`);
   }
-    response.render('auth/login');
+    let message;
+    response.render('auth/login', {message});
   }
 );
 
@@ -53,7 +54,8 @@ router.post('/login', (request, response) => {
           response.redirect(`/users/${user.id}`);
         });
       } else {
-        response.render('auth/login', {warning: 'Incorrect username or password'});
+        let message = "username and password don't match";
+        res.redirect('auth/login', {message});
       }
     });
   })
