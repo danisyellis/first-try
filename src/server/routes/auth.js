@@ -12,11 +12,12 @@ router.get('/signup', (request, response) => {
 });
 
 router.post('/signup', (request, response) => {
+  const name = request.body.name;
   const email = request.body.email;
   const password = request.body.password;
   encryptPassword(password)
   .then(hashedPassword => {
-    Users.create(email, hashedPassword)
+    Users.create(name, email, hashedPassword)
     .then(newUser => {
      createSession(request, response, newUser);
      const id = newUser.id;

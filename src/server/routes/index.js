@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const db = require('../../db');
+const db = require('../../models/db');
 const auth = require('./auth');
 const albums = require('./albums');
-//const users = require('./users');
+const users = require('./users');
 
 router.get('/', (req, res) => {
   db.getAlbums((error, albums) => {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 router.use('/', auth);
 router.use('/albums', albums);
-// router.use('/users', users);
+router.use('/users', users);
 
 
 module.exports = router;
