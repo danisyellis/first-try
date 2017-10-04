@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use((request, response, next) => {
   //response.locals.query = '';  only need this if I implement search using the variable query
   response.locals.isLoggedIn = false;
+  response.locals.user = "";
   next()
 });
 
