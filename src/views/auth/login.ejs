@@ -1,0 +1,28 @@
+<%- include ../partials/layout.ejs %>
+
+<div class="login-page">
+
+  <h1 class="center">Sign In</h1>
+
+  <form method="post" action="/login" class="authy-form">
+    <pre class="authy-form-errors"><%=message%></pre>
+    <div class="section group">
+      <div class="col span_1_of_2 auth-form-labels">Email address:</div>
+      <div class="col span_1_of_2">
+        <input type="email" name="email"/>
+      </div>
+    </div>
+    <div class="section group">
+      <div class="col span_1_of_2 auth-form-labels">Password:</div>
+      <div class="col span_1_of_2">
+        <input type="password" name="password" required/>
+      </div>
+    </div>
+    <div class="section group">
+      <div class="col span_1_of_2 auth-form-labels"></div>
+      <div class="col span_1_of_2"><input type="submit" value="Sign in"></div>
+    </div>
+  </form>
+</div>
+
+<%- include ../partials/footer.ejs %>

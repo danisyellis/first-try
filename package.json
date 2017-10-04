@@ -8,18 +8,25 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
+    "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed && npm run db:session:setup",
     "db:create": "createdb vinyl",
     "db:drop": "dropdb vinyl",
-    "db:schema": "psql -d vinyl < src/db/schema.sql",
-    "db:seed": "psql -d vinyl < src/db/albums.sql",
+    "db:schema": "psql -d vinyl < src/models/db/schema.sql",
+    "db:seed": "psql -d vinyl < src/models/db/albums.sql",
+    "db:session:setup": "psql vinyl < node_modules/connect-pg-simple/table.sql",
     "test": "./node_modules/.bin/eslint src"
   },
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
+    "connect-pg-simple": "^4.2.1",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
-    "pg": "^6.2.4"
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
+    "pg-promise": "^6.10.2"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
