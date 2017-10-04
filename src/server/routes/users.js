@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const db = require('../../models/db');
+const Users = require('../../models/users');
 
 router.get('/:id', (request, response) => {
-  const id=req.params.id;
-  User.findById(id)
+  const id=request.params.id;
+  Users.findById(id)
   .then(user => {
-    res.render('users/show', {user})
+    response.render('users/show', {user})
   })
 })
 

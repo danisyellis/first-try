@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const connectionString = process.env.DATABASE_URL;
 const db = pgp(connectionString);
-console.log(db, "in  index");
+
 //check to see if we can connect to the db. If not, catch an error
 db.connect()
     .then(obj => {

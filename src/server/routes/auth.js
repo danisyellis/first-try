@@ -27,9 +27,12 @@ router.post('/signup', (request, response) => {
      });
    })
    .catch(error => {
-     response.render('auth/signup', {warning: 'That username already exists. Please choose another.'});
+     let message = 'That username already exists. Please choose another.'
+     response.render('auth/signup', {message});
    });
- });
+ }).catch(error => {
+   console.log(error, "could not create user")
+ })
 });
 
 router.get('/login', (request, response) => {
@@ -56,12 +59,13 @@ router.post('/login', (request, response) => {
         });
       } else {
         let message = "username and password don't match";
-        response.redirect('auth/login', {message});
+        response.render('auth/login', {message});
       }
     });
   })
   .catch(error => {
-    response.render('auth/login', {warning: 'Incorrect username or password'});
+    let message = 'Incorrect username or password'
+    response.render('auth/login', {message});
   });
 });
 
