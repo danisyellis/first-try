@@ -1,15 +1,26 @@
 <%- include partials/layout.ejs %>
-  <h1>Vinyl</h1>
 
-  <h2>Records</h2>
+  <img src="vinyl.jpeg" class="vinylPic"/>
 
-  <div class="album-list">
-    <% albums.forEach(function(album) { %>
-      <div>
-        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
+
+  <div class="section group">
+  	<div class="col span_1_of_3">
+      <div class="left-column">
+        <h1>Records</h1>
+        <div class="album-list">
+          <% albums.forEach(function(album) { %>
+            <div>
+              <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
+              <span><%= album.artist %></span>
+            </div>
+          <% }) %>
+        </div>
       </div>
-    <% }) %>
+  	</div>
+  	<div class="col span_2_of_3">
+      <h1>Recent Reviews</h1>
+  	</div>
   </div>
+
 
 <%- include partials/footer.ejs %>
