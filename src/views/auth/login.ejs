@@ -1,22 +1,28 @@
 <%- include ../partials/layout.ejs %>
 
-<h1>Sign In</h1>
+<div class="login-page">
 
-  <form method="post" action="/login" class="login-form">
-    <pre class="new-user-form-errors">
-      <%=message%>
-    </pre>
-    <label>
-      <span>Email address:</span>
-      <input type="text" name="email" />
-    </label>
-    <label>
-      <span>Password:</span>
-      <input type="password" name="password" />
-    </label>
-    <input type="submit" value="Login">
+  <h1 class="center">Sign In</h1>
+
+  <form method="post" action="/login" class="authy-form">
+    <pre class="authy-form-errors"><%=message%></pre>
+    <div class="section group">
+      <div class="col span_1_of_2 auth-form-labels">Email address:</div>
+      <div class="col span_1_of_2">
+        <input type="email" name="email"/>
+      </div>
+    </div>
+    <div class="section group">
+      <div class="col span_1_of_2 auth-form-labels">Password:</div>
+      <div class="col span_1_of_2">
+        <input type="password" name="password" required/>
+      </div>
+    </div>
+    <div class="section group">
+      <div class="col span_1_of_2 auth-form-labels"></div>
+      <div class="col span_1_of_2"><input type="submit" value="Sign in"></div>
+    </div>
   </form>
-
-  <a href='/signup'>Signup</a>
+</div>
 
 <%- include ../partials/footer.ejs %>
