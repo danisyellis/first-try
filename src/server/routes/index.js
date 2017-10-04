@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
 })
 
 router.use('/', auth);
-router.use(isLoggedIn);
 router.use('/albums', albums);
+router.use(isLoggedIn);
 router.use('/users', users);
 
 

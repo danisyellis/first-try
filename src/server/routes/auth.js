@@ -27,7 +27,7 @@ router.post('/signup', (request, response) => {
      });
    })
    .catch(error => {
-     let message = 'That username already exists. Please choose another.'
+     let message = 'That email is already in our system. Please choose another.'
      response.render('auth/signup', {message});
    });
  }).catch(error => {
@@ -58,7 +58,7 @@ router.post('/login', (request, response) => {
           response.redirect(`/users/${user.id}`);
         });
       } else {
-        let message = "username and password don't match";
+        let message = 'Incorrect username or password';
         response.render('auth/login', {message});
       }
     });
@@ -71,7 +71,7 @@ router.post('/login', (request, response) => {
 
 router.get('/signout', (request, response) => {
   request.session.destroy(() => {
-    response.redirect('login');
+    response.redirect('/');
   })
 });
 
