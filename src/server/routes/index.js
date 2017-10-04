@@ -3,6 +3,7 @@ const db = require('../../models/db');
 const auth = require('./auth');
 const albums = require('./albums');
 const users = require('./users');
+const {isLoggedIn} = require('../utils');
 
 router.get('/', (req, res) => {
   db.getAlbums(albums)
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
 })
 
 router.use('/', auth);
+router.use(isLoggedIn);
 router.use('/albums', albums);
 router.use('/users', users);
 

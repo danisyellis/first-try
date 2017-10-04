@@ -1,5 +1,12 @@
 <div class="header">
   <a href='/'>Vinyl</a>
-  <a href='/signup'>Signup</a>
-  <a href='/login'>Login</a>
+
+<% console.log(isLoggedIn) %>
+  <% if(isLoggedIn) { %>
+    <a href='/users/<%- user.id %>'>Profile</a>
+    <a href='/signout'>Sign out</a>
+  <% } else { %>
+    <a href='/signup'>Sign up</a>
+    <a href='/login'>Sign in</a>
+  <% } %>
 </div>

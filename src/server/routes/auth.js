@@ -69,4 +69,10 @@ router.post('/login', (request, response) => {
   });
 });
 
+router.get('/signout', (request, response) => {
+  request.session.destroy(() => {
+    response.redirect('login');
+  })
+});
+
 module.exports = router;
