@@ -31,7 +31,13 @@ hr {
   margin-right: 10px;
 }
 
-
+.newReviewPage {
+  text-align: center;
+}
+.new-review-submit {
+  margin-top: 10px;
+  margin-left: 350px;
+}
 
 /*Reusable classes*/
 .center {

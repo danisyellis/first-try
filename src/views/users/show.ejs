@@ -1,8 +1,9 @@
 <%- include ../partials/layout.ejs %>
 
-<p>
-  hello
-  <%-user.name%>
-</p>
+<div>
+  <h1><%-user.name%></h1>
+  <p><%-user.email%></p>
+  <p><%-user.date_joined%></p>
+</div>
 
 <%- include ../partials/footer.ejs %>
