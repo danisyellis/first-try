@@ -4,11 +4,12 @@ const Users = require('../../models/users');
 
 
 router.get('/signup', (request, response) => {
+  let message;
   if(request.session.user) {
     const id = request.session.user.id;
     response.redirect(`/users/${id}`);
   }
-  response.render('auth/signup');
+  response.render('auth/signup', {message});
 });
 
 router.post('/signup', (request, response) => {
@@ -55,7 +56,7 @@ router.post('/login', (request, response) => {
         });
       } else {
         let message = "username and password don't match";
-        res.redirect('auth/login', {message});
+        response.redirect('auth/login', {message});
       }
     });
   })

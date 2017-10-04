@@ -1,4 +1,4 @@
-const db = require('./index.js')
+const {db} = require('./index.js')
 
 const create = (name, email, password) => {
   return db.oneOrNone(`

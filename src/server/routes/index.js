@@ -5,12 +5,12 @@ const albums = require('./albums');
 const users = require('./users');
 
 router.get('/', (req, res) => {
-  db.getAlbums((error, albums) => {
-    if (error) {
-      res.status(500).render('common/error', {error})
-    } else {
-      res.render('index', {albums})
-    }
+  db.getAlbums(albums)
+  .then(albums => {
+    res.render('index', {albums})
+  })
+  .catch(error => {
+    res.status(500).render('common/error', {error})
   })
 })
 
