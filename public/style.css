@@ -16,6 +16,14 @@ html, body {
 .header-right a {
   margin-left: 25px;
 }
+hr {
+  margin-bottom: 0;
+}
+
+.vinylPic {
+  width: 100%;
+  height: 300px;
+}
 
 
 .auth-form-labels {
@@ -24,11 +32,20 @@ html, body {
 }
 
 
+
+/*Reusable classes*/
 .center {
   text-align: center;
 }
 
+.left-column {
+  padding-left: 20px;
+}
 
+
+
+
+/*Responsive Grids*/
 /*  SECTIONS  */
 .section {
 	clear: both;
@@ -52,18 +69,14 @@ html, body {
 
 
 /*  GRID OF TWO   ============================================================================= */
-
-
 .span_2_of_2 {
 	width: 100%;
 }
-
 .span_1_of_2 {
 	width: 49.2%;
 }
 
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-
 @media only screen and (max-width: 480px) {
 	.span_2_of_2 {
 		width: 100%;
@@ -71,4 +84,14 @@ html, body {
 	.span_1_of_2 {
 		width: 100%;
 	}
+}
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 65.83%; }
+.span_1_of_3 { width: 31.66%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
 }
