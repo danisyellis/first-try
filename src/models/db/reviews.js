@@ -9,7 +9,11 @@ const create = (content, userId, albumId) => {
     RETURNING
       *
     `,
-    [content, userId, albumId])
+    [
+      content,
+      userId,
+      albumId
+    ])
   .catch(error => {
     console.error(error.message);
     throw error;
@@ -30,7 +34,23 @@ const findById = (id) => {
     });
   };
 
+  const findByUser = (userId) => {
+    return db.oneOrNone(`
+      SELECT
+        *
+      FROM
+        reviews
+      JOIN users on (reviews.user_id = users.id)
+      WHERE id=$1
+      `, userId)
+      .catch(error => {
+        console.error(error.message);
+        throw error;
+      });
+    };
+
 module.exports = {
   create,
-  findById
+  findById,
+  findByUser
 };

@@ -1,4 +1,4 @@
-const db = require('./db/users');
+const db = require('./db/reviews');
 
 const create = (content, userId, albumId) => {
   return db.create(content, userId, albumId);
