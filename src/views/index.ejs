@@ -19,6 +19,20 @@
   	</div>
   	<div class="col span_2_of_3">
       <h1>Recent Reviews</h1>
+      <div>
+        <% reviews.forEach(function(review) { %>
+          <div>
+            <div>
+              <h4><%=review.album_id%></h4>
+              <h5><%=review.date_created%></h5>
+            </div>
+            <p>
+            <%=review.content%>
+            </p>
+            <em>by <%= review.user_id %></em>
+          </div>
+        <%})%>
+      </div>
   	</div>
   </div>
 

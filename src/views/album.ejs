@@ -1,10 +1,31 @@
 <%- include partials/layout.ejs %>
 
   <h1><%= album.title %></h1>
-  <em>by <%= album.artist %></em>
 
+<%# holding Reviews and add Review button%>
+<div>
   <h2>Reviews</h2>
+  <a href="<%=album.id%>/reviews/new"><button>Add Review</button></a>
+</div>
 
   <!-- TODO: implement album reviews -->
+    <!-- add function to get all reviews by albumId
+         add that function to the get album route -->
+  <%# TODO: fix review.user_id to be the reviewer's name%>
+
+<div>
+  <% reviews.forEach(function(review) { %>
+    <div>
+      <div>
+        <h4><%=album.title%></h4>
+        <h5><%=review.date_created%></h5>
+      </div>
+      <p>
+      <%=review.content%>
+      </p>
+      <em>by <%= review.user_id %></em>
+    </div>
+  <%})%>
+</div>
 
   <%- include partials/footer.ejs %>

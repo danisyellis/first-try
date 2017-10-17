@@ -35,13 +35,13 @@ const findById = (id) => {
   };
 
   const findByUser = (userId) => {
-    return db.oneOrNone(`
+    return db.any(`
       SELECT
         *
       FROM
         reviews
-      JOIN users on (reviews.user_id = users.id)
-      WHERE id=$1
+      WHERE reviews.user_id=$1
+      ORDER BY reviews.id DESC
       `, userId)
       .catch(error => {
         console.error(error.message);
@@ -49,8 +49,30 @@ const findById = (id) => {
       });
     };
 
+    const findByAlbum = (albumId) => {
+      return db.any(`
+        SELECT * FROM reviews
+        WHERE reviews.album_id = $1
+        ORDER BY reviews.id DESC
+      `, albumId)
+      .catch(error => {
+        console.error(error.message);
+        throw error;
+      });
+    };
+
+    const find3MostRecent = function() {
+      return db.any(`
+        SELECT * FROM reviews
+        ORDER BY reviews.id DESC
+        LIMIT 3
+      `)
+    }
+
 module.exports = {
   create,
   findById,
-  findByUser
+  findByUser,
+  findByAlbum,
+  find3MostRecent
 };
